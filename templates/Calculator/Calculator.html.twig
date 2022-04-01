@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<style>
+    #calculator-wrap{
+        line-height: 30px;
+    }
+    #calculator-wrap #calculator div label{
+        display: block;
+        font-weight: bold;
+    }
+    #calculator-wrap #calculator #calculator_expression label{
+        display: inline-block;
+        padding:5px 10px 5px 2px;
+        color: red;
+    }
+    #calculator_calculate{
+        margin: 20px 0;
+        padding: 10px 20px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+    <h1>Calculator</h1>
+    <div id="calculator-wrap">
+        {{ form_start(form, {'attr': {'class': 'form_calc'}}) }}
+        <div class="errors">
+            {{ form_errors(form) }}
+        </div>
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        <hr>Total:<br/>
+        <strong>{% if result %}{{ result }}{% else %}0{% endif %}</strong>
+    </div>
+{% endblock %}
