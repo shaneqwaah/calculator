@@ -8089,8 +8089,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
-    "platform-dev": {
-        "php": "*"
-    },
+    "platform-dev": [],
     "plugin-api-version": "1.1.0"
 }

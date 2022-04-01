@@ -7,8 +7,12 @@ use App\Entity\Calculation\CalculationInterface;
 
 class Division implements CalculationInterface
 {
-    public function doCalculation($firstNumber, $secondNumber)
+    public function performCalculation($inputOne, $inputTwo)
     {
-        return $firstNumber / $secondNumber;
+        if ($inputTwo == 0){
+            return 'Division by zero error';
+        } else {
+            return $inputOne / $inputTwo;
+        }
     }
 }

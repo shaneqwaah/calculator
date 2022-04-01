@@ -5,5 +5,5 @@ namespace App\Entity\Calculation;
 
 interface CalculationInterface
 {
-    public function doCalculation($firstNumber, $secondNumber);
+    public function performCalculation($inputOne, $inputTwo);
 }

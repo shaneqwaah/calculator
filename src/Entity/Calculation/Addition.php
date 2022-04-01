@@ -8,8 +8,8 @@ use App\Entity\Calculation\CalculationInterface;
 
 class Addition implements CalculationInterface
 {
-    public function doCalculation($firstNumber, $secondNumber)
+    public function performCalculation($inputOne, $inputTwo)
     {
-        return $firstNumber + $secondNumber;
+        return $inputOne + $inputTwo;
     }
 }

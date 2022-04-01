@@ -15,10 +15,10 @@ class CalculatorType extends AbstractType
                     [
                         'choices' =>
                             [
-                                'Addition' => 'addition',
-                                'Subtraction' => 'subtraction',
-                                'Multiplication' => 'multiplication',
-                                'Division' => 'division'
+                                '+' => 'addition',
+                                '-' => 'subtraction',
+                                'x' => 'multiplication',
+                                '/' => 'division'
                             ],
                         'expanded' => true
                     ]

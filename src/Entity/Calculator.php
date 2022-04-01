@@ -2,51 +2,33 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-use App\Entity\Calculation\CalculationInterface;
-use App\Entity\Calculation\Addition;
-use App\Entity\Calculation\Subtraction;
-use App\Entity\Calculation\Multiplication;
-use App\Entity\Calculation\Division;
 
 
 class Calculator {
-    /*
-     * @Assert\NotBlank()
-     * @Assert\Type("double")
-     */
-    private $firstValue;
 
-    /*
-     * @Assert\NotBlank()
-     * @Assert\Type("double")
-     */
-    private $secondValue;
-
-    /*
-     * @Assert\NotBlank()
-     * @Assert\Choice({"addition", "subtraction", "multiplication", "division"})
-     */
     private $expression;
+    private $inputOne;
+    private $inputTwo;
+
 
     public function getFirstValue()
     {
-        return $this->firstValue;
+        return $this->inputOne;
     }
 
-    public function setFirstValue($firstValue)
+    public function setFirstValue($inputOne)
     {
-        $this->firstValue = $firstValue;
+        $this->inputOne = $inputOne;
     }
 
     public function getSecondValue()
     {
-        return $this->secondValue;
+        return $this->inputTwo;
     }
 
-    public function setSecondValue($secondValue)
+    public function setSecondValue($inputTwo)
     {
-        $this->secondValue = $secondValue;
+        $this->inputTwo = $inputTwo;
     }
 
     public function getExpression()
@@ -64,7 +46,7 @@ class Calculator {
         $class = rtrim('App\Entity\Calculation\ ') . ucfirst($this->getExpression());
         if(class_exists($class)){
             $instance = new $class();
-            return  $instance->doCalculation($this->getFirstValue(), $this->getSecondValue());
+            return  $instance->performCalculation($this->getFirstValue(), $this->getSecondValue());
         }
         throw new \RuntimeException('The class not found on Calculator::calculationsFactory()!');
     }
